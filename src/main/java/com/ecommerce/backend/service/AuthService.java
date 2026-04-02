@@ -27,6 +27,8 @@ public class AuthService {
         return "User Registered";
     }
 
+
+    // login Api
     public String login(String email, String password) {
         User user = userRepo.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found"));
@@ -35,6 +37,6 @@ public class AuthService {
             throw new RuntimeException("Invalid password");
         }
         
-        return jwtUtil.generateToken(email);
+        return jwtUtil.generateToken(email); 
     }
 }
